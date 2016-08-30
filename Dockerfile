@@ -3,7 +3,7 @@ FROM michilu/docker-web-essentials
 ENV \
   GOPATH="/usr/local/go_appengine/gopath" \
   GOROOT="/usr/local/go_appengine/goroot" \
-  PATH="/usr/local/go_appengine:$PATH"
+  PATH="/usr/local/go_appengine:/usr/local/go_appengine/goroot/bin:$PATH"
 
 RUN version="1.9.40" \
   ; zipfile="go_appengine_sdk_linux_amd64-${version}.zip" \
