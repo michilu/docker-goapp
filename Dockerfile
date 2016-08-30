@@ -1,6 +1,7 @@
 FROM michilu/docker-web-essentials
 
 ENV \
+  CGO_ENABLED="0" \
   GOPATH="/usr/local/go_appengine/gopath" \
   GOROOT="/usr/local/go_appengine/goroot" \
   PATH="/usr/local/go_appengine:/usr/local/go_appengine/goroot/bin:$PATH"
