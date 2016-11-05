@@ -6,7 +6,7 @@ ENV \
   GOROOT="/usr/local/go_appengine/goroot" \
   PATH="/usr/local/go_appengine:/usr/local/go_appengine/goroot/bin:/usr/local/go/bin:$PATH"
 
-RUN version="1.9.40" \
+RUN version="1.9.46" \
   ; zipfile="go_appengine_sdk_linux_amd64-${version}.zip" \
   ; apk --no-cache --update add --virtual=build-time-only \
   curl \
