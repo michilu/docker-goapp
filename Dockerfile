@@ -9,7 +9,10 @@ ENV \
 RUN gae_version="1.9.53" \
   ; go_version="1.7" \
   ; zipfile="go_appengine_sdk_linux_amd64-${gae_version}.zip" \
-  ; apk --no-cache --update add --virtual=build-time-only \
+  ; apk --no-cache --update add \
+# GNU grep needed by the deploy step on Wercker CI
+  grep \
+  && apk --no-cache --update add --virtual=build-time-only \
   curl \
   tar \
   && curl -sO https://storage.googleapis.com/appengine-sdks/featured/${zipfile} \
