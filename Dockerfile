@@ -3,11 +3,11 @@ FROM michilu/docker-web-essentials
 ENV \
   CGO_ENABLED="0" \
   GOPATH="/usr/local/go_appengine/gopath" \
-  GOROOT="/usr/local/go_appengine/goroot" \
+  GOROOT="/usr/local/go_appengine/goroot-1.8" \
   PATH="/usr/local/go_appengine:/usr/local/go_appengine/goroot/bin:/usr/local/go/bin:$PATH"
 
-RUN gae_version="1.9.54" \
-  ; go_version="1.7" \
+RUN gae_version="1.9.55" \
+  ; go_version="1.8.3" \
   ; zipfile="go_appengine_sdk_linux_amd64-${gae_version}.zip" \
   ; apk --no-cache --update add \
 # GNU grep needed by the deploy step on Wercker CI
