@@ -10,8 +10,9 @@ RUN gae_version="1.9.57" \
   ; go_version="1.8.3" \
   ; zipfile="go_appengine_sdk_linux_amd64-${gae_version}.zip" \
   ; apk --no-cache --update add \
-# gcc needed by the Go Race Detector
+# gcc and musl-dev needed by the Go Race Detector
   gcc \
+  musl-dev \
 # GNU grep needed by the deploy step on Wercker CI
   grep \
   && apk --no-cache --update add --virtual=build-time-only \
