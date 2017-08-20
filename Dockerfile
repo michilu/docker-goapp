@@ -15,6 +15,8 @@ RUN gae_version="1.9.57" \
   musl-dev \
 # GNU grep needed by the deploy step on Wercker CI
   grep \
+# openssh-client needed by the dep pulling private repository
+  openssh-client \
   && apk --no-cache --update add --virtual=build-time-only \
   curl \
   tar \
