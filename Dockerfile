@@ -6,10 +6,7 @@ ENV \
   GOROOT="/usr/local/go_appengine/goroot-1.8" \
   PATH="/usr/local/go_appengine:/usr/local/go_appengine/goroot/bin:/usr/local/go/bin:$PATH"
 
-RUN gae_version="1.9.59" \
-  ; go_version="1.8.3" \
-  ; zipfile="go_appengine_sdk_linux_amd64-${gae_version}.zip" \
-  ; apk --no-cache --update add \
+RUN apk --no-cache --update add \
 # gcc and musl-dev needed by the Go Race Detector
   gcc \
   musl-dev \
@@ -17,6 +14,11 @@ RUN gae_version="1.9.59" \
   grep \
 # openssh-client needed by the dep pulling private repository
   openssh-client \
+  ;
+
+RUN gae_version="1.9.59" \
+  ; go_version="1.8.3" \
+  ; zipfile="go_appengine_sdk_linux_amd64-${gae_version}.zip" \
   && apk --no-cache --update add --virtual=build-time-only \
   curl \
   tar \
