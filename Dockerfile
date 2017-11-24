@@ -6,13 +6,13 @@ ENV \
   GOROOT="/usr/local/go_appengine/goroot-1.8" \
   PATH="/usr/local/go_appengine:/usr/local/go_appengine/goroot/bin:/usr/local/go/bin:$PATH"
 
-RUN apk --no-cache --update add \
 # gcc and musl-dev needed by the Go Race Detector
+# GNU grep needed by the deploy step on Wercker CI
+# openssh-client needed by the dep pulling private repository
+RUN apk --no-cache --update add \
   gcc \
   musl-dev \
-# GNU grep needed by the deploy step on Wercker CI
   grep \
-# openssh-client needed by the dep pulling private repository
   openssh-client \
   ;
 
