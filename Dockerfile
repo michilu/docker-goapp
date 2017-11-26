@@ -19,7 +19,7 @@ ENV \
 
 RUN gae_version="1.9.59" \
   ; go_version="1.8.3" \
-  && apk --no-cache --update add --virtual=build-time-only \
+  ; apk --no-cache --update add --virtual=build-time-only \
   curl \
   tar \
   && curl -s -o file.zip https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-${gae_version}.zip \
