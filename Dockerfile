@@ -8,6 +8,7 @@ RUN apk --no-cache --update add \
   musl-dev \
   grep \
   openssh-client \
+  && mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2 \
   ;
 
 ENV \
@@ -28,7 +29,6 @@ RUN gae_version="1.9.59" \
   && : ${go_version:=`goapp version|sed -e "s/^.*go\([0-9\.]\+\).*$/\1/g"`} \
   ; curl -s https://storage.googleapis.com/golang/go${go_version}.linux-amd64.tar.gz \
   | tar xzfp - -C /usr/local/ \
-  && mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2 \
   && apk del build-time-only
 
 CMD type go \
