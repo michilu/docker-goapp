@@ -25,7 +25,7 @@ RUN gae_version="1.9.59" \
   && curl -s -o file.zip https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-${gae_version}.zip \
   && unzip -qq file.zip -d /usr/local \
   && rm file.zip \
-  && : ${go_version:=`goapp version|sed -e "s/^.*go\([0-9\.]\+\).*$/\1/g"`} \
+  && : ${go_version:=`goapp version|sed -e "s/^.*go version \([0-9\.]\+\).*$/\1/g"`} \
   ; curl -s https://storage.googleapis.com/golang/go${go_version}.linux-amd64.tar.gz \
   | tar xzfp - -C /usr/local/ \
   && apk del build-time-only
