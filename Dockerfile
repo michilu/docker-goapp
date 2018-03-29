@@ -17,8 +17,8 @@ ENV \
   GOROOT="/usr/local/go_appengine/goroot-1.8" \
   PATH="/usr/local/go_appengine:/usr/local/go_appengine/goroot/bin:/usr/local/go/bin:$PATH"
 
-RUN gae_version="1.9.63" \
-  ;:`#; go_version="1.9.4"` \
+RUN gae_version="1.9.64" \
+  ;:`#; go_version="1.10.0"` \
   ; apk --no-cache --update add --virtual=build-time-only \
   curl \
   tar \
